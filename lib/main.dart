@@ -1,5 +1,6 @@
-import 'package:discounts_frontend/exit/exit.dart';
-import 'package:discounts_frontend/settings/settings.dart';
+import 'package:DiscountsApp/exit/exit.dart';
+import 'package:DiscountsApp/exit/registration.dart';
+import 'package:DiscountsApp/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 import 'home/home.dart';
@@ -20,7 +21,8 @@ class StartApplication extends StatelessWidget {
       routes: {
         "/home": (BuildContext c) => const HomePage(),
         "/settings": (BuildContext c) => const SettingsPage(),
-        "/exit": (BuildContext c) => const ExitPage()
+        "/exit": (BuildContext c) => const ExitPage(),
+        "/registration": (BuildContext c) => const RegistrationPage()
       },
     );
   }

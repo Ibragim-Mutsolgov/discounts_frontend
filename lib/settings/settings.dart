@@ -17,7 +17,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: SystemSettings().getAppBar("Параметры"),
       drawer: SystemSettings().getDrawer(context),
       body: ListView(
-        children: [
+        children: const [
         ],
       )
     );

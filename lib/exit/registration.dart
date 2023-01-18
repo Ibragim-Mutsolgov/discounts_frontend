@@ -1,16 +1,16 @@
-import 'package:DiscountsApp/exit/registration.dart';
+import 'package:DiscountsApp/exit/exit.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home.dart';
 
-class ExitPage extends StatefulWidget {
-  const ExitPage({Key? key}) : super(key: key);
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({Key? key}) : super(key: key);
 
   @override
-  State<ExitPage> createState() => _ExitPageState();
+  State<RegistrationPage> createState() => _RegistrationPage();
 }
 
-class _ExitPageState extends State<ExitPage> {
+class _RegistrationPage extends State<RegistrationPage> {
   GlobalKey<FormState> key = GlobalKey();
 
   String username = "";
@@ -54,7 +54,7 @@ class _ExitPageState extends State<ExitPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                "Авторизация",
+                                "Регистрация",
                                 style: TextStyle(
                                     fontSize: 35, color: Colors.black),
                               )
@@ -91,13 +91,13 @@ class _ExitPageState extends State<ExitPage> {
                                           borderSide: const BorderSide(
                                               color: Colors.black),
                                           borderRadius:
-                                              BorderRadius.circular(7.0),
+                                          BorderRadius.circular(7.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.black, width: 2.0),
                                           borderRadius:
-                                              BorderRadius.circular(7.0),
+                                          BorderRadius.circular(7.0),
                                         ),
                                       ),
                                     ),
@@ -107,65 +107,41 @@ class _ExitPageState extends State<ExitPage> {
                                   padding: EdgeInsets.zero,
                                   child: SizedBox(
                                       child: TextFormField(
-                                    cursorColor: Colors.black,
-                                    obscureText: true,
-                                    validator: (String? inValue) {
-                                      if (inValue!.isEmpty) {
-                                        return "Пожалуйста, введите пароль";
-                                      }
-                                      return null;
-                                    },
-                                    onSaved: (String? inValue) {
-                                      password = inValue!;
-                                    },
-                                    textAlign: TextAlign.center,
-                                    decoration: InputDecoration(
-                                      hintText: "Пароль",
-                                      labelText: "Пароль",
-                                      labelStyle: const TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                      border: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.black),
-                                        borderRadius:
+                                        cursorColor: Colors.black,
+                                        obscureText: true,
+                                        validator: (String? inValue) {
+                                          if (inValue!.isEmpty) {
+                                            return "Пожалуйста, введите пароль";
+                                          }
+                                          return null;
+                                        },
+                                        onSaved: (String? inValue) {
+                                          password = inValue!;
+                                        },
+                                        textAlign: TextAlign.center,
+                                        decoration: InputDecoration(
+                                          hintText: "Пароль",
+                                          labelText: "Пароль",
+                                          labelStyle: const TextStyle(
+                                              color: Colors.black, fontSize: 18),
+                                          border: OutlineInputBorder(
+                                            borderSide: const BorderSide(
+                                                color: Colors.black),
+                                            borderRadius:
                                             BorderRadius.circular(7.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.black, width: 2.0),
-                                        borderRadius:
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: const BorderSide(
+                                                color: Colors.black, width: 2.0),
+                                            borderRadius:
                                             BorderRadius.circular(7.0),
-                                      ),
-                                    ),
-                                  )),
+                                          ),
+                                        ),
+                                      )),
                                 ),
                                 Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                    child: SizedBox(
-                                      width: double.infinity,
-                                      height: 50,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
-                                            shadowColor: Colors.black),
-                                        onPressed: () {
-                                          Navigator.pushNamedAndRemoveUntil(
-                                              context,
-                                              "/home",
-                                              ModalRoute.withName('/home'));
-                                        },
-                                        child: const Text(
-                                          "Войти",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18),
-                                        ),
-                                      ),
-                                    )),
-                                Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                    const EdgeInsets.fromLTRB(0, 20, 0, 0),
                                     child: SizedBox(
                                       width: double.infinity,
                                       height: 50,
@@ -175,12 +151,36 @@ class _ExitPageState extends State<ExitPage> {
                                             shadowColor: Colors.black,
                                             minimumSize: const Size(300, 50)),
                                         onPressed: () {
-                                          Navigator.pushNamed(
+                                          Navigator.pushAndRemoveUntil(
                                               context,
-                                              "/registration");
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                  const ExitPage()),
+                                              ModalRoute.withName('/registration'));
                                         },
                                         child: const Text(
-                                          "Регистрация",
+                                          "Зарегистрироваться",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    )),
+                                Padding(
+                                    padding:
+                                    const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                    child: SizedBox(
+                                      width: double.infinity,
+                                      height: 50,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.black,
+                                            shadowColor: Colors.black),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text(
+                                          "Назад",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 18),
